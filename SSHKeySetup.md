@@ -1,5 +1,3 @@
-Certainly, if you want to remove step 5 (creating an SSH passphrase) and step 6 (adding the SSH key to the SSH agent), you can simplify the process. Here's the updated tutorial:
-
 **Step 1: Create a GitHub Account**
 
 If you haven't already, go to [GitHub's website](https://github.com) and sign up for a new account by providing your email address, a username, and a strong password. Follow the on-screen instructions to complete the registration process.
