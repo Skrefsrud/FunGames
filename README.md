@@ -1,7 +1,7 @@
-# PixelPionerer
+# FunGames
 
 
-Welcome to PixelPionerer, a locally hosted website containing a collection of small entertaining games. This project was developed by a team of five passionate developers, and it offers a variety of classic games, including Rock, Paper, Scissors, Three in a Row, and Blackjack.
+Welcome to FunGames, a locally hosted website containing a collection of small entertaining games. This project was developed by a team of five passionate developers, and it offers a variety of classic games, including Rock, Paper, Scissors, Three in a Row, and Blackjack.
 
 ## Getting Started
 
@@ -14,7 +14,7 @@ Navigate to the project directory:
 
 bash
 Copy code
-cd PixelPionerer
+cd FunGames
 Open the index.html file in your web browser.
 
 Features
@@ -28,7 +28,7 @@ Blackjack
 Try your luck at Blackjack, the popular card game. Can you beat the dealer and reach 21 without going bust?
 
 Contributing
-We welcome contributions from the community! If you'd like to contribute to PixelPionerer, please follow these guidelines:
+We welcome contributions from the community! If you'd like to contribute to FunGames, please follow these guidelines:
 
 Fork the repository on GitHub.
 Create a new branch for your feature: git checkout -b feature-name.
