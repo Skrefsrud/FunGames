@@ -12,6 +12,7 @@ class Card {
   }
 }
 
+// Class for both player and dealer
 class Player {
   constructor(money, cards) {
     this.money = money;
