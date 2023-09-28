@@ -41,6 +41,7 @@ body {
     padding: 60px;
     text-align: center;
     justify-content: center;
+    
   }
 
   .bobleboks {
@@ -58,6 +59,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .bobleboks:hover {
@@ -69,3 +71,7 @@ body {
     opacity: 0.5;
 }
 
+.linkiboble {
+    text-decoration: none;
+    color: inherit;
+}
