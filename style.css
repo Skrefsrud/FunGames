@@ -50,7 +50,14 @@ body {
     transition: opacity 0.50s;
     padding: 50px;
     border: 1px solid black;
-    font-size: 25px;
+    font-size: 30px;
+    border-radius: 15px;
+    width: 150px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .bobleboks:hover {
