@@ -49,10 +49,16 @@ function createDeck() {
   return cards;
 }
 
-function hitCard() {}
+let deckOfCards = createDeck();
+let player = new Player(1000);
+
+function hitCard() {
+  const rNum = Math.floor(Math.random() * 52);
+  let card = deckOfCards[rNum];
+  deckOfCards.splice(rNum, 1);
+  player.addCard(card);
+  console.log(player);
+  console.log(deckOfCards);
+}
 
 function skipCard() {}
-
-let deckOfCards = createDeck();
-console.log(deckOfCards);
-console.log(deckOfCards[5].getNumber());
