@@ -27,3 +27,4 @@ function createDeck() {
 }
 let deckOfCards = createDeck();
 console.log(deckOfCards);
+console.log(deckOfCards[5].getNumber());
