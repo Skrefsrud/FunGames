@@ -21,6 +21,9 @@ class Player {
     return this.cards;
   }
 
+  getAmountOfCards() {
+    return this.cards.length;
+  }
   addCard(card) {
     this.cards.push(card);
   }
@@ -54,23 +57,41 @@ function createDeck() {
 
 let deckOfCards = createDeck();
 let player = new Player(1000);
-let amountOfCardsHit = 0;
+let dealer = new Player(1000);
 
-function hitCard() {
+//Functions for giving player and dealer a new card and removing it from the deck
+
+function hitPlayerCard() {
   const rNum = Math.floor(Math.random() * 52);
   let card = deckOfCards[rNum];
   deckOfCards.splice(rNum, 1);
   player.addCard(card);
-  renderCards();
-  amountOfCardsHit++;
+  renderPlayerCards();
 }
 
-function skipCard() {}
+function hitDealerCard() {
+  const rNum = Math.floor(Math.random() * 52);
+  let card = deckOfCards[rNum];
+  deckOfCards.splice(rNum, 1);
+  dealer.addCard(card);
+  renderDealerCards();
+}
 
-function renderCards() {
+// give dealer and player two cards each
+function dealCards() {
+  for (let i = 0; i < 2; i++) {
+    hitPlayerCard();
+    hitDealerCard();
+  }
+}
+
+function stand() {}
+
+//functions for rendering player and dealers cards
+
+function renderPlayerCards() {
   let playerCardsContainer = document.querySelector(".playerCards");
   let currentPlayerCards = player.getCards();
-  console.log(currentPlayerCards[amountOfCardsHit].getNumber());
   let cardDisplay = document.createElement("div");
   let cardDisplayValue = document.createElement("p");
   let cardDisplaySort = document.createElement("p");
@@ -78,13 +99,34 @@ function renderCards() {
   cardDisplay.classList.add("cardDisplay");
   cardDisplayValue.classList.add("cardDisplayValue");
   cardDisplayValue.textContent = `${currentPlayerCards[
-    amountOfCardsHit
+    player.getAmountOfCards() - 1
   ].getNumber()}`;
   cardDisplaySort.classList.add("classDisplaySort");
   cardDisplaySort.textContent = `${currentPlayerCards[
-    amountOfCardsHit
+    player.getAmountOfCards() - 1
   ].getSort()}`;
   cardDisplay.appendChild(cardDisplayValue);
   cardDisplay.appendChild(cardDisplaySort);
   playerCardsContainer.appendChild(cardDisplay);
+}
+
+function renderDealerCards() {
+  let dealerCardsContainer = document.querySelector(".dealerCards");
+  let currentDealerCards = dealer.getCards();
+  let cardDisplay = document.createElement("div");
+  let cardDisplayValue = document.createElement("p");
+  let cardDisplaySort = document.createElement("p");
+
+  cardDisplay.classList.add("cardDisplay");
+  cardDisplayValue.classList.add("cardDisplayValue");
+  cardDisplayValue.textContent = `${currentDealerCards[
+    dealer.getAmountOfCards() - 1
+  ].getNumber()}`;
+  cardDisplaySort.classList.add("classDisplaySort");
+  cardDisplaySort.textContent = `${currentDealerCards[
+    dealer.getAmountOfCards() - 1
+  ].getSort()}`;
+  cardDisplay.appendChild(cardDisplayValue);
+  cardDisplay.appendChild(cardDisplaySort);
+  dealerCardsContainer.appendChild(cardDisplay);
 }
