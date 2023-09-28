@@ -36,10 +36,11 @@ body {
 
 .boblebokser {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr);
     gap: 60px;
-    padding: 30px;
+    padding: 60px;
     text-align: center;
+    justify-content: center;
   }
 
   .bobleboks {
@@ -47,9 +48,9 @@ body {
     font-size: 25px;
     cursor: pointer;
     transition: opacity 0.50s;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 50px;
     border: 1px solid black;
+    font-size: 25px;
 }
 
 .bobleboks:hover {
