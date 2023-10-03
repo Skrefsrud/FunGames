@@ -8,7 +8,7 @@ body {
     margin-right: 0;
 }
 
-header {
+#fellesheader {
     background-color: #f924f9;
     color: #040404;
     text-align: left;
@@ -23,6 +23,11 @@ header {
 }
 
 #headerknapp {
+    text-decoration: none;
+    color: inherit;
+}
+
+.linkiboble {
     text-decoration: none;
     color: inherit;
 }
