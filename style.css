@@ -1,0 +1,71 @@
+body {
+    background-color: #f2f2f2;
+}
+
+#forsidebody {
+    font-family: Arial, sans-serif;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#forside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+
+#forsideheader {
+    background-color: #f924f9;
+    color: #040404;
+    text-align: left;
+    padding: 10px;
+}
+
+#headertekst {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#forsideheaderknapp {
+    text-decoration: none;
+    color: inherit;
+}
+
+.boblebokser {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    padding: 60px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .bobleboks {
+    background-color: rgba(188, 233, 133, 0.8);
+    font-size: 25px;
+    cursor: pointer;
+    transition: opacity 0.50s;
+    padding: 50px;
+    border: 1px solid black;
+    font-size: 30px;
+    border-radius: 15px;
+    width: 150px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bobleboks:hover {
+    opacity: 0.6;
+    box-shadow: -3px 3px 10px black;
+}
+
+.bobleboks:active {
+    opacity: 0.5;
+}
+
