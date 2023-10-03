@@ -1,0 +1,28 @@
+.overskrift {
+    
+    color: rgb(4, 0, 0);
+    padding: 20px;
+    text-align: center;
+}
+
+.overskrift h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.overskrift p {
+    font-size: 14px;
+}
+
+.content {
+    margin-top: 10px;
+    margin: 80px;
+    padding: auto;
+    border: 1px solid #050000;
+    background-color: #ffffff;
+}
+
+.content p {
+    margin: 0 0 10px 0;
+    line-height: 1.5;
+}
