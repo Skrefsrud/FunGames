@@ -1,3 +1,4 @@
+// class for single Card
 class Card {
   constructor(number, sort) {
     this.number = number;
@@ -45,6 +46,7 @@ class Player {
 let sorts = ["♣", "♦", "♥", "♠"];
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
+// function to create a deck
 function createDeck() {
   let cards = [];
   for (let i = 0; i < sorts.length; i++) {
