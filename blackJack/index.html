@@ -3,26 +3,42 @@
   <head>
     <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BlackJack</title>
   </head>
   <body>
-    <div class="info-container player">
-      <h3 id="player-sum">Player Sum:</h3>
-      <div class="playerCards"></div>
-      <p class="money" id="player-money">1000$</p>
-    </div>
+    <div class="container">
+      <div class="info-container">
+        <div class="player-info">
+          <h3 id="player-sum">Player Sum:</h3>
+          <p class="money" id="player-money">1000$</p>
+        </div>
+        <div class="dealer-info">
+          <h3 id="dealer-sum">Dealer Sum:</h3>
+          <p class="money" id="dealer-money">1000$</p>
+        </div>
+      </div>
 
-    <div class="info-container dealer">
-      <h3 id="dealer-sum">Dealer Sum:</h3>
-      <div class="dealerCards"></div>
-      <p class="money" id="dealer-money">1000$</p>
-    </div>
+      <button onclick="dealCards()" class="dealCards">Deal</button>
 
-    <button onclick="dealCards()" class="dealCards">Deal</button>
-    <button onclick="hitPlayerCard()" class="hit">Hit</button>
-    <button onclick="stand()" class="skip">Stand</button>
+      <div class="game-container">
+        <div class="dealerCards"></div>
+        <div class="playerCards"></div>
+        <div class="actions-container">
+          <button onclick="hitPlayerCard()" class="hit">Hit</button>
+          <button onclick="stand()" class="skip">Stand</button>
+        </div>
+      </div>
+
+      <div id="bet-container"></div>
+
+      <div id="chip-container">
+        <img class="chip 1" value="20" src="img/20chip.png" />
+        <img class="chip 2" value="50" src="img/50chip.png" />
+        <img class="chip 3" value="100" src="img/100chip.png" />
+      </div>
+    </div>
   </body>
 </html>

@@ -1,9 +1,91 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 80% 20%;
+  height: 100%;
+  width: 100%;
+}
+
+.info-container {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  background-color: #ff5733;
+}
+
+.game-container {
+  grid-column: 2;
+  grid-row: 1;
+  background-color: #33ff57;
+
+  display: grid;
+  grid-template-rows: 45% 45% 10%;
+}
+
+.dealerCards {
+  background-color: #33a0ff; /* For styling, you can change this */
+}
+
+.playerCards {
+  background-color: #33ff57; /* For styling, you can change this */
+}
+
+.actions-container {
+  background-color: #ff5733; /* For styling, you can change this */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+#bet-container {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  background-color: #5733ff;
+}
+
+#chip-container {
+  grid-column: 1 / span 3;
+  grid-row: 2;
+  background-color: #33a0ff;
+  gap: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.dealCards {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+}
+.dealCards.hide {
+  display: none;
+}
+
 #lostScreen,
 #wonScreen {
-  opacity: 0.5;
+  opacity: 1;
   width: 100vw;
   height: 300px;
   position: absolute;
+  top: 30%;
   align-self: center;
   display: flex;
   justify-content: center;
@@ -17,4 +99,27 @@
 
 #lostScreen {
   background-color: red;
+}
+
+/* Initial style for all chips */
+.chip {
+  opacity: 0.7;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  transition: opacity 0.3s; /* Add a smooth transition effect */
+}
+
+/* Style for chips when hovered */
+.chip.hovered {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.cloneChip {
+  width: 150px;
+  height: 130px;
+  margin: -10px;
+  padding: -20px;
 }

@@ -15,7 +15,7 @@ class Card {
 
 // Class for both player and dealer
 class Player {
-  constructor(money, cards) {
+  constructor(money) {
     this.money = money;
     this.cards = [];
   }
@@ -40,10 +40,12 @@ class Player {
 
   addMoney(sum) {
     this.money += sum;
+    renderPlayerMoney();
   }
 
   removeMoney(sum) {
     this.money -= sum;
+    renderPlayerMoney();
   }
 
   getSum() {
@@ -77,7 +79,7 @@ function createDeck() {
 let deckOfCards = createDeck();
 let player = new Player(1000);
 let dealer = new Player(1000);
-let betAmount = 250;
+let betAmount = 0;
 
 //Function for resetting game
 function resetGame() {
@@ -98,15 +100,27 @@ function resetGame() {
   } else {
     lScreen.remove();
   }
+  dealButton.classList.remove("hide");
+  betAmount = 0;
+  while (betContainer.firstChild) {
+    betContainer.removeChild(betContainer.firstChild);
+  }
+}
+
+let deckAmount = 52;
+function getRandomFromDeckAmount() {
+  let rNum = Math.floor(Math.random() * deckAmount);
+  deckAmount -= 1;
+  return rNum;
 }
 
 //Functions for giving player and dealer a new card and removing it from the deck
 
 function hitPlayerCard() {
-  const rNum = Math.floor(Math.random() * 52);
+  let rNum = getRandomFromDeckAmount();
   let card = deckOfCards[rNum];
-  deckOfCards.splice(rNum, 1);
   player.addCard(card);
+  deckOfCards.splice(rNum, 1);
   renderPlayerCards();
   if (player.getSum() > 21) {
     playerLost();
@@ -131,7 +145,7 @@ function playerLost() {
 }
 
 function playerWon() {
-  dealer.addMoney(betAmount * 2);
+  player.addMoney(betAmount * 2);
   dealer.removeMoney(betAmount);
   let div = document.createElement("div");
   div.setAttribute("id", "wonScreen");
@@ -146,21 +160,24 @@ function playerWon() {
   h1.innerHTML = "PLAYER WON!";
   div.appendChild(h1);
   document.body.appendChild(div);
-  renderPlayerMoney();
 }
 
 function renderPlayerMoney() {
   let moneyDisplay = document.getElementById("player-money");
   moneyDisplay.innerHTML = `${player.getMoney()}$`;
+  let dealerMoneyDispaly = document.getElementById("dealer-money");
+  dealerMoneyDispaly.innerHTML = `${dealer.getMoney()}$`;
 }
 
 function hitDealerCard() {
-  const rNum = Math.floor(Math.random() * 52);
+  const rNum = getRandomFromDeckAmount();
   let card = deckOfCards[rNum];
-  deckOfCards.splice(rNum, 1);
   dealer.addCard(card);
+  deckOfCards.splice(rNum, 1);
   renderDealerCards();
 }
+
+let dealButton = document.querySelector(".dealCards");
 
 // give dealer and player two cards each
 function dealCards() {
@@ -168,6 +185,7 @@ function dealCards() {
     hitPlayerCard();
     hitDealerCard();
   }
+  dealButton.classList.add("hide");
 }
 
 function stand() {
@@ -175,6 +193,8 @@ function stand() {
     hitDealerCard();
   }
   if (dealer.getSum() > 21) {
+    playerWon();
+  } else if (dealer.getSum() === player.getSum()) {
     playerWon();
   } else {
     playerLost();
@@ -192,6 +212,7 @@ function renderPlayerCards() {
 
   cardDisplay.classList.add("cardDisplay");
   cardDisplayValue.classList.add("cardDisplayValue");
+
   cardDisplayValue.textContent = `${currentPlayerCards[
     player.getAmountOfCards() - 1
   ].getNumber()}`;
@@ -232,3 +253,36 @@ function renderDealerCards() {
     "dealer-sum"
   ).innerHTML = `Dealer sum: ${dealer.getSum()}`;
 }
+
+// logic for selecting bet amount
+
+let chips = document.querySelectorAll(".chip");
+let betContainer = document.getElementById("bet-container");
+chips.forEach((chip) => {
+  //add value of clicked chip to the betAmount
+  chip.addEventListener("click", (e) => {
+    let chipValue = Number(chip.getAttribute("value"));
+    betAmount += chipValue;
+    player.removeMoney(chipValue);
+    let clonedChip = chip.cloneNode(true);
+    clonedChip.classList.remove("chip");
+    clonedChip.classList.add("cloneChip");
+    betContainer.appendChild(clonedChip);
+  });
+  chip.addEventListener("mouseover", function () {
+    // Add a class to the hovered chip to change its width
+    chip.classList.add("hovered");
+
+    // Remove the class from other chips to reset their width
+    chips.forEach((otherChip) => {
+      if (otherChip !== chip) {
+        otherChip.classList.remove("hovered");
+      }
+    });
+  });
+
+  chip.addEventListener("mouseout", function () {
+    // Remove the class when the mouse leaves to reset the width
+    chip.classList.remove("hovered");
+  });
+});
