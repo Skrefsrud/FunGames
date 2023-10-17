@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Stein, Papir, Saks Game</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="prove.css">
+</head>
+<body>
+
+</a><h1>Stein, Saks eller Papir</h1>
+  <div class="scoreboard">
+    <div class="spiller-score">Player: 0</div>
+    <div class="computer-score">Computer: 0</div>
+  </div>
+  <div class="valgmulighetene">
+    <div class="valg" id="stein">
+      <img src="images/sspstein.png" alt="">
+    </div>
+    <div class="valg" id="papir">
+      <img src="images/ssphånd.png" alt="">
+    </div>
+    <div class="valg" id="saks">
+      <img src="images/sspsaks.png" alt="">
+    </div>
+  </div>
+  <div class="resultat" id="resultat">
+    <p>Velg ditt våpen!</p>
+  </div>
+  <div id="computer-valg"></div>
+  <div class="timer" id="timer">
+    <p>Tid som gjenstår: <span id="nedtelling">10</span>s</p>
+  </div>
+  <button class="spill-igjen" id="spill-igjen">Spill igjen </button>
+  <script src="prove.js"></script>
+</body>
+</html>
+
