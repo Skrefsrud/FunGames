@@ -15,14 +15,14 @@
 }
 
 .content {
-    margin-top: 10px;
-    margin: 80px;
+    margin-top: 7px;
+    margin: 20px;
     padding: auto;
     border: 1px solid #050000;
     background-color: #ffffff;
 }
 
-.content p {
-    margin: 0 0 10px 0;
-    line-height: 1.5;
+iframe {
+    padding: 1000;
+    margin-left: 200px;
 }
