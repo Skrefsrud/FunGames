@@ -26,33 +26,32 @@
 }
 
 .bobleboks:nth-child(1) {
-    grid-row: 1; /* Øverste rad */
-    grid-column: 1; /* Første kolonne */
+    grid-row: 1; 
+    grid-column: 1;
   }
-
-  .bobleboks:nth-child(2) {
-    grid-row: 1; /* Øverste rad */
-    grid-column: 2; /* Andre kolonne */
-    
+.bobleboks:nth-child(2) {
+    grid-row: 1; 
+    grid-column: 2; 
   }
-  .bobleboks:nth-child(3) {
-    grid-row: 2; /* Nederste rad */
-    grid-column: 1; /* Første kolonne */
+.bobleboks:nth-child(3) {
+    grid-row: 2;
+    grid-column: 1; 
   }
-  
   .bobleboks:nth-child(4) {
-    grid-row: 2; /* Nederste rad */
-    grid-column: 2; /* Andre kolonne */
+    grid-row: 2;
+    grid-column: 2;
   }
-  
-  .bobleboks:nth-child(5) {
-    grid-row: 2; /* Nederste rad */
-    grid-column: 3; /* Tredje kolonne */
+.bobleboks:nth-child(5) {
+    grid-row: 2;
+    grid-column: 3;
   }
 
+#myBtn {
+    
+}
 
 /* The Modal (background) */
-.minProfil {
+.modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -67,7 +66,7 @@
   }
   
   /* Modal Content */
-  .profilInnhold {
+  .modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -89,3 +88,5 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+
