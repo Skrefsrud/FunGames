@@ -33,6 +33,7 @@ html {
 
   display: grid;
   grid-template-rows: 45% 45% 10%;
+  position: relative;
 }
 
 .dealerCards {
@@ -74,6 +75,7 @@ html {
   position: absolute;
   top: 45%;
   left: 45%;
+  z-index: 100;
 }
 .dealCards.hide {
   display: none;
@@ -123,3 +125,48 @@ html {
   margin: -10px;
   padding: -20px;
 }
+
+/* ----- Position of the deck ------ */
+#deck{
+  width: 10%;
+  height: 30%;
+  left: 4%;
+  top: 30%;
+  position: absolute;
+}
+/* ----- First animation (dealer) ------ */
+#cards{
+    width: 10%;
+    height: 30%;
+    left: 4%;
+    top: 30%;
+    position: absolute;
+    animation-name: deal;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes deal {
+    0%   {left:4%; top:30%;}
+    33%  {left:27%; top:7%;transform: rotate(180deg);}
+    100% {left:27%; top:7%;}
+
+/* ----- Second animation (player) ------ */
+  }
+  #cards2{
+    width: 10%;
+    height: 30%;
+    left: 4%;
+    top: 30%;
+    position: absolute;
+    animation-name: deal2;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes deal2 {
+    0%   {left:4%; top:30%;}
+    33%  {left:27%; top:52%;transform: rotate(-180deg);}
+    100% {left:27%; top:52%;}
+  }
