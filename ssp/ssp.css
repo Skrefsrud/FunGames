@@ -1,1 +1,153 @@
 
+
+
+
+/* Apply global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #c5ad84;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 2rem;
+    color: #006625;
+  }
+  
+  /* Style scoreboard */
+  .scoreboard {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .scoreboard > div {
+    font-size: 2rem;
+    margin: 0 1rem;
+    padding: 0.5rem;
+    border: 2px solid #006625;
+    border-radius: 10px;
+    color: #006625;
+  }
+  
+  /* Style valgmulighetene */
+  .valgmulighetene {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+  
+  .valg {
+    border: 2px solid #006625;
+    border-radius: 10px;
+    margin: 0 2rem;
+    padding: 2rem;
+    background-color: #FFFFFF;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .valg:hover {
+    transform: scale(1.1);
+  }
+  
+  .valg:active {
+    transform: scale(0.9);
+  }
+  
+  .valg i {
+    color: #006625;
+    font-size: 50px;
+  }	
+  
+  /* Style resultat */
+  .resultat {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 2rem;
+    color: #006625;
+  }
+  
+  #computer-valg {
+    text-align: center;
+    font-size: 2rem;
+    color: #006625;
+  }
+  
+  /* Style timer */
+  .timer {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: #006625;
+  }
+  /* Style play again button */
+  .spill-igjen {
+    display: block;
+    margin: 3rem auto 1rem auto;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #006625;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .spill-igjen:hover {
+    background-color: #6fb07a;
+  }
+  
+  .logo {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      display: block;
+      z-index: 100;
+      transition: all 250ms linear;
+  }
+  
+  .logo img {
+      height: 30px;
+      width: auto;
+      display: block;
+  }
+  
+  .spill-igjen:active {
+    transform: scale(0.9);
+  }
+  
+  /* Add responsive design */
+  @media only screen and (max-width: 600px) {
+    .valgmulighetene {
+      flex-wrap: wrap;
+    }
+  
+    .valg {
+      margin: 2rem 1rem;
+    }
+  
+    .timer {
+      margin-top: 1rem;
+    }
+  }
+  
+  .valg img {
+    max-width: 50px;
+    max-height: 50px;
+    display: block;
+    margin: 2px ;
+  }
+  
+  
