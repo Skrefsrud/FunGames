@@ -1,0 +1,91 @@
+.boblebokser {
+    display: grid;
+    grid-template-columns: repeat(1fr, 1fr, 1fr);
+    grid-template-rows: auto, 1fr;
+    gap: 60px;
+    padding: 60px;
+    text-align: center;
+    justify-content: center;
+}
+
+.bobleboks {
+    background-color: rgba(188, 233, 133, 0.8);
+    font-size: 25px;
+    cursor: pointer;
+    transition: opacity 0.50s;
+    padding: 50px;
+    border: 1px solid black;
+    font-size: 30px;
+    border-radius: 15px;
+    width: 150px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bobleboks:nth-child(1) {
+    grid-row: 1; /* Øverste rad */
+    grid-column: 1; /* Første kolonne */
+  }
+
+  .bobleboks:nth-child(2) {
+    grid-row: 1; /* Øverste rad */
+    grid-column: 2; /* Andre kolonne */
+    
+  }
+  .bobleboks:nth-child(3) {
+    grid-row: 2; /* Nederste rad */
+    grid-column: 1; /* Første kolonne */
+  }
+  
+  .bobleboks:nth-child(4) {
+    grid-row: 2; /* Nederste rad */
+    grid-column: 2; /* Andre kolonne */
+  }
+  
+  .bobleboks:nth-child(5) {
+    grid-row: 2; /* Nederste rad */
+    grid-column: 3; /* Tredje kolonne */
+  }
+
+
+/* The Modal (background) */
+.minProfil {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .profilInnhold {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
