@@ -1,25 +1,40 @@
-// Get the modal
-var modal = document.getElementById("myModal");
+function showModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = "block";
+  }
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
+  function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
     modal.style.display = "none";
   }
-}
+
+  document.getElementById("openModal1").addEventListener("click", function () {
+    showModal("modal1");
+  });
+  document.getElementById("openModal2").addEventListener("click", function () {
+    showModal("modal2");
+  });
+  document.getElementById("openModal3").addEventListener("click", function () {
+    showModal("modal3");
+  });
+  document.getElementById("openModal4").addEventListener("click", function () {
+    showModal("modal4");
+  });
+  document.getElementById("openModal5").addEventListener("click", function () {
+    showModal("modal5");
+  });
+  document.getElementsByClassName("close")[0].addEventListener("click", function () {
+    closeModal("modal1");
+  });
+  document.getElementsByClassName("close")[1].addEventListener("click", function () {
+    closeModal("modal2");
+  });
+  document.getElementsByClassName("close")[2].addEventListener("click", function () {
+    closeModal("modal3");
+  });
+  document.getElementsByClassName("close")[3].addEventListener("click", function () {
+    closeModal("modal4");
+  });
+  document.getElementsByClassName("close")[4].addEventListener("click", function () {
+    closeModal("modal5");
+  });

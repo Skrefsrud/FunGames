@@ -47,7 +47,23 @@
   }
 
 #myBtn {
-    
+    background-color: #f924f9;
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.50s;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    font-size: 18px;
+}
+#myBtn:hover {
+    opacity: 0.6;
+    box-shadow: -3px 3px 10px black;
+}
+
+#myBtn:active {
+    opacity: 0.5;
 }
 
 /* The Modal (background) */
@@ -88,5 +104,36 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 600px;
+    height: 1200px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  #profiltekst {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+  #profiltekst h2 {
+    font-size: 20px;
+    text-decoration: underline;
+  }
+  #profiltekst ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  #profiltekst li {
+    margin-bottom: 10px;
+    font-size: 13px;
+    text-align: left;
+  }
+  
 
 
