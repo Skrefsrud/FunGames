@@ -1,13 +1,24 @@
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
 #gameboard{
     display: grid;
     grid-template-columns: auto auto auto;
-    background-color: #021e36;
-    padding: 5px;
+    grid-template-rows: auto auto auto;
+    padding: 100px;
+    width: 33.33%;
+    width: 100px;
+    height: 100px;
 }
   .square {
-    background-color: rgba(222, 192, 192, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 200px;
-    font-size: 30px;
+    background-color: rgba(0, 122, 141, 0.8);
+    border: 2px solid rgba(0, 15, 44, 0.8);
+    padding: 10px;
+    font-size: 50px;
     text-align: center;
+    width: 100px;
+    height: 100px;
   }

@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tic-tac-toe.css    ">
+    
     <title>Document</title>
 </head>
 <body>
 
     <h1>Tic-tac-toe</h1>
+    <button id="restart_button">Try again</button>
     <!--Making the layout for Tic-Tac-Toe-->
     <div id="gameboard">
-        <div class="square">X</div>
-        <div class="square">X</div>
-        <div class="square">O</div>
-        <div class="square">O</div>
-        <div class="square">O</div>
-        <div class="square">X</div>
-        <div class="square">X</div>
-        <div class="square">O</div>
-        <div class="square">X</div>
+        <div class="square" id="0" onclick="test()"></div> <!--Making 9 divs for the gameboard giving each div an unique id starting from 0 to fill in to an array using javascript-->
+        <div class="square" id="1"></div>
+        <div class="square" id="2"></div>
+        <div class="square" id="3"></div>
+        <div class="square" id="4"></div>
+        <div class="square" id="5"></div>
+        <div class="square" id="6"></div>
+        <div class="square" id="7"></div>
+        <div class="square" id="8"></div>
     </div>
     
+    <script src="tic-tac-toe.js"></script>
 </body>
 </html>
