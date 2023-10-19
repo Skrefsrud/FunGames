@@ -61,20 +61,19 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  opacity: 0.8;
+  box-shadow: 0 0 0 0, 0 0 50px #4fc3dc;
 }
 
 .bobleboks:hover {
-  opacity: 0.6;
-  box-shadow: -3px 3px 10px black;
-}
-
-.bobleboks:active {
-  opacity: 0.5;
+  opacity: 1;
+  box-shadow: 0 0 0 0, 0 0 50px #ff2d75;
 }
 
 .linkiboble {
   text-decoration: none;
   color: inherit;
+  z-index: 100;
 }
 
 /* ----------- background-bubles ------------ */
@@ -101,7 +100,7 @@ body {
   background: #4fc3dc;
   margin: 0 4px;
   border-radius: 50%;
-  box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+  box-shadow: 0 0 0 10px #4fc2dc2f, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
   animation: animate 15s linear infinite;
   animation-duration: calc(220s / var(--i));
 }
