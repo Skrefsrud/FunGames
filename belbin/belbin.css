@@ -1,0 +1,139 @@
+.boblebokser {
+    display: grid;
+    grid-template-columns: repeat(1fr, 1fr, 1fr);
+    grid-template-rows: auto, 1fr;
+    gap: 60px;
+    padding: 60px;
+    text-align: center;
+    justify-content: center;
+}
+
+.bobleboks {
+    background-color: rgba(188, 233, 133, 0.8);
+    font-size: 25px;
+    cursor: pointer;
+    transition: opacity 0.50s;
+    padding: 50px;
+    border: 1px solid black;
+    font-size: 30px;
+    border-radius: 15px;
+    width: 150px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bobleboks:nth-child(1) {
+    grid-row: 1; 
+    grid-column: 1;
+  }
+.bobleboks:nth-child(2) {
+    grid-row: 1; 
+    grid-column: 2; 
+  }
+.bobleboks:nth-child(3) {
+    grid-row: 2;
+    grid-column: 1; 
+  }
+  .bobleboks:nth-child(4) {
+    grid-row: 2;
+    grid-column: 2;
+  }
+.bobleboks:nth-child(5) {
+    grid-row: 2;
+    grid-column: 3;
+  }
+
+#myBtn {
+    background-color: #f924f9;
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.50s;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    font-size: 18px;
+}
+#myBtn:hover {
+    opacity: 0.6;
+    box-shadow: -3px 3px 10px black;
+}
+
+#myBtn:active {
+    opacity: 0.5;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 600px;
+    height: 1200px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  #profiltekst {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+  #profiltekst h2 {
+    font-size: 20px;
+    text-decoration: underline;
+  }
+  #profiltekst ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  #profiltekst li {
+    margin-bottom: 10px;
+    font-size: 13px;
+    text-align: left;
+  }
+  
+
+
