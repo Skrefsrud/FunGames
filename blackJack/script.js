@@ -58,6 +58,9 @@ class Player {
         sum += 10;
       }
     }
+    if (this.cards.some((e) => e.getNumber() === 1) && sum < 12) {
+      sum += 10;
+    }
     return sum;
   }
 
@@ -68,6 +71,7 @@ class Player {
 
 let sorts = ["♣", "♦", "♥", "♠"];
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+let isDealt = false;
 
 // function to create a deck
 function createDeck() {
@@ -95,12 +99,7 @@ function resetGame() {
   prevCards.forEach((element) => {
     element.remove();
   });
-  document.getElementById(
-    "player-sum"
-  ).innerHTML = `Player sum: ${player.getSum()}`;
-  document.getElementById(
-    "dealer-sum"
-  ).innerHTML = `Dealer sum: ${dealer.getSum()}`;
+
   let lScreen = document.getElementById("lostScreen");
   if (lScreen === null) {
     document.getElementById("wonScreen").remove();
@@ -124,17 +123,21 @@ function getRandomFromDeckAmount() {
 //Functions for giving player and dealer a new card and removing it from the deck
 
 function hitPlayerCard() {
-  let rNum = getRandomFromDeckAmount();
-  let card = deckOfCards[rNum];
-  player.addCard(card);
-  deckOfCards.splice(rNum, 1);
-  renderPlayerCards();
-  if (player.getSum() > 21) {
-    playerLost();
+  if (isDealt === true) {
+    let rNum = getRandomFromDeckAmount();
+    let card = deckOfCards[rNum];
+    player.addCard(card);
+    deckOfCards.splice(rNum, 1);
+    renderPlayerCards();
+    if (player.getSum() > 21) {
+      playerLost();
+    }
   }
 }
 
 function playerLost() {
+  showHiddenCard();
+  let gameContainer = document.querySelector(".game-container");
   dealer.addMoney(betAmount);
   let div = document.createElement("div");
   div.setAttribute("id", "lostScreen");
@@ -144,14 +147,16 @@ function playerLost() {
   btn.addEventListener("click", function () {
     resetGame();
   });
-  div.appendChild(btn);
+
   let h1 = document.createElement("h1");
   h1.innerHTML = "DEALER WON!";
   div.appendChild(h1);
-  document.body.appendChild(div);
+  div.appendChild(btn);
+  gameContainer.appendChild(div);
 }
 
 function playerWon() {
+  let gameContainer = document.querySelector(".game-container");
   player.addMoney(betAmount * 2);
   dealer.removeMoney(betAmount);
   let div = document.createElement("div");
@@ -162,11 +167,25 @@ function playerWon() {
   btn.addEventListener("click", function () {
     resetGame();
   });
-  div.appendChild(btn);
+
+  function draw() {
+    let gameContainer = document.querySelector(".game-container");
+    player.addMoney(betAmount);
+    let div = document.createElement("div");
+    div.setAttribute("id", "drawScreen");
+    let btn = document.createElement("button");
+    btn.innerHTML = "New round";
+    btn.classList.add("newRoundBtn");
+    btn.addEventListener("click", function () {
+      resetGame();
+    });
+  }
+
   let h1 = document.createElement("h1");
   h1.innerHTML = "PLAYER WON!";
   div.appendChild(h1);
-  document.body.appendChild(div);
+  div.appendChild(btn);
+  gameContainer.appendChild(div);
 }
 
 function renderPlayerMoney() {
@@ -177,31 +196,47 @@ function renderPlayerMoney() {
 }
 
 function hitDealerCard() {
-  const rNum = getRandomFromDeckAmount();
-  let card = deckOfCards[rNum];
-  dealer.addCard(card);
-  deckOfCards.splice(rNum, 1);
-  renderDealerCards();
+  if (isDealt === true) {
+    const rNum = getRandomFromDeckAmount();
+    let card = deckOfCards[rNum];
+    dealer.addCard(card);
+    deckOfCards.splice(rNum, 1);
+    renderDealerCards();
+  }
 }
 
 let dealButton = document.querySelector(".dealCards");
 
 // give dealer and player two cards each
 function dealCards() {
-  for (let i = 0; i < 2; i++) {
-    hitPlayerCard();
-    hitDealerCard();
+  isDealt = true;
+  if (betAmount != 0) {
+    for (let i = 0; i < 2; i++) {
+      hitPlayerCard();
+      hitDealerCard();
+    }
+    dealButton.classList.add("hide");
+  } else {
+    alert("You have to place a bet!");
   }
-  dealButton.classList.add("hide");
+}
+
+function showHiddenCard() {
+  let hiddenCard = document.querySelector(".hiddenCard");
+  hiddenCard.src = getImageSrc(dealer.getCards()[1]);
 }
 
 function stand() {
-  while (dealer.getSum() < player.getSum()) {
+  showHiddenCard();
+
+  while (dealer.getSum() < 17) {
     hitDealerCard();
   }
   if (dealer.getSum() > 21) {
     playerWon();
   } else if (dealer.getSum() === player.getSum()) {
+    draw();
+  } else if (dealer.getSum() < player.getSum()) {
     playerWon();
   } else {
     playerLost();
@@ -227,10 +262,6 @@ function renderPlayerCards() {
   gameContainer.appendChild(cardImage);
 
   startAnimation(cardImage, player);
-
-  document.getElementById(
-    "player-sum"
-  ).innerHTML = `Player sum: ${player.getSum()}`;
 }
 
 function renderDealerCards() {
@@ -238,23 +269,25 @@ function renderDealerCards() {
   let currentCard = currentDealerCards[dealer.getAmountOfCards() - 1];
 
   //animate the card to the board
-
   let cardImage = document.createElement("img");
-  cardImage.setAttribute(
-    "class",
-    `dealer-card ${dealer.getAmountOfCards()} cardForRemove`
-  );
-  cardImage.src = getImageSrc(currentCard);
+
+  if (currentCard === currentDealerCards[1]) {
+    cardImage.src = "img/backCard.png";
+    cardImage.setAttribute(
+      "class",
+      `dealer-card ${dealer.getAmountOfCards()} hiddenCard cardForRemove`
+    );
+  } else {
+    cardImage.src = getImageSrc(currentCard);
+    cardImage.setAttribute(
+      "class",
+      `dealer-card ${dealer.getAmountOfCards()} cardForRemove`
+    );
+  }
   //cardImage.setAttribute("src", getImageSrc(currentCard));
   gameContainer.appendChild(cardImage);
 
   startAnimation(cardImage, dealer);
-
-  //rendering the dealer sum
-
-  document.getElementById(
-    "dealer-sum"
-  ).innerHTML = `Dealer sum: ${dealer.getSum()}`;
 }
 
 //Delaer animation
@@ -264,6 +297,7 @@ function startAnimation(cardImage, playMaker) {
   } else if (playMaker.getName() === "player") {
     var newTop = "52%";
   }
+  const easeInOutTiming = "cubic-bezier(0.42, 0, 0.58, 1)";
   const animationProperties = [
     { left: "4%", top: "30%", transform: "rotate(0deg)" },
     {
@@ -275,8 +309,9 @@ function startAnimation(cardImage, playMaker) {
 
   // Create a new animation
   const animation = cardImage.animate(animationProperties, {
-    duration: 300, // Animation duration in milliseconds (1 second in this case)
+    duration: 500, // Animation duration in milliseconds (1 second in this case)
     fill: "forwards", // Keep the final state of the animation
+    easing: easeInOutTiming,
   });
 
   // Start the animation immediately
@@ -337,3 +372,9 @@ function getImageSrc(card) {
   }
   return source;
 }
+
+let container = document.querySelector(".container");
+container.addEventListener("click", function () {
+  // Scroll the page to center the container
+  container.scrollIntoView({ behavior: "smooth", block: "center" });
+});
