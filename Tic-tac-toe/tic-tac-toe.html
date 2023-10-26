@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="tic-tac-toe.css">
-    <link rel="stylesheet" href="../global.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="tic-tac-toe.css" />
+    <link rel="stylesheet" href="../global.css" />
     <title>Dokument</title>
-</head>
-<body id="body_tre_paa_rad">
+  </head>
+  <body id="body_tre_paa_rad">
     <header id="fellesheader">
-        <a href="index.html" id="headerknapp"><h1 id="headertekst">FunGames</h1></a> 
-     </header>
-        
-    <h1 id="tre_paa_rad_overskrift">Tre på Rad</h1><br>
-    <button id="skjul_regler_knapp" onclick="skjul_regler()">Skjul/vis spillregler</button>
+      <a href="../index.html" id="headerknapp"
+        ><h1 id="headertekst">FunGames</h1></a
+      >
+    </header>
+
+    <h1 id="tre_paa_rad_overskrift">Tre på Rad</h1>
+    <br />
+    <button id="skjul_regler_knapp" onclick="skjul_regler()">
+      Skjul/vis spillregler
+    </button>
     <ul id="spillregler">
-        <li>To spillere deltar i spillet. En spiller bruker "X," og den andre bruker "O."</li>
-        <li>Målet med spillet er å plassere tre av dine egne symboler på rad, enten horisontalt, vertikalt eller diagonalt, før motstanderen gjør det.</li>
-        <li>Spillerene plasserer etter tur ett symbol i en av de tomme rutene på spillerbrettet.</li>
-        <li>Spillet fortsetter til en av spillerne har tre symboler på rad, eller at alle rutene er utfylt, noe som resulterer i uavgjort.</li>
+      <li>
+        To spillere deltar i spillet. En spiller bruker "X," og den andre bruker
+        "O."
+      </li>
+      <li>
+        Målet med spillet er å plassere tre av dine egne symboler på rad, enten
+        horisontalt, vertikalt eller diagonalt, før motstanderen gjør det.
+      </li>
+      <li>
+        Spillerene plasserer etter tur ett symbol i en av de tomme rutene på
+        spillerbrettet.
+      </li>
+      <li>
+        Spillet fortsetter til en av spillerne har tre symboler på rad, eller at
+        alle rutene er utfylt, noe som resulterer i uavgjort.
+      </li>
     </ul>
 
     <!--lagerspillerbrett-->
     <div id="container">
-    <div id="gameboard">
-        <div class="square" id="0"></div>  <!--lager 9 diver for spillerbrettet og gjør de tilgjengelig med hver sin unike id-->
+      <div id="gameboard">
+        <div class="square" id="0"></div>
+        <!--lager 9 diver for spillerbrettet og gjør de tilgjengelig med hver sin unike id-->
         <div class="square" id="1"></div>
         <div class="square" id="2"></div>
         <div class="square" id="3"></div>
@@ -33,27 +51,27 @@
         <div class="square" id="6"></div>
         <div class="square" id="7"></div>
         <div class="square" id="8"></div>
-    </div> 
-    <button id="restart_button">Prøv igjen</button>
+      </div>
+      <button id="restart_button">Prøv igjen</button>
     </div>
     <!----------footer---------->
     <div class="footer">
-        <div class="footer-content">
-          <h2>Kontakt oss</h2>
-          <p>
-            Har du spørsmål knyttet til spillene våre eller nettsiden generellt?
-            Send oss en meldig da vel!
-          </p>
-          <ul>
-            <li><a href="#">E-post</a></li>
-            <li><a href="#">Telefon</a></li>
-            <li><a href="#">Addresse</a></li>
-            <li><a href="#top">Til toppen</a></li>
-          </ul>
-        </div>
+      <div class="footer-content">
+        <h2>Kontakt oss</h2>
+        <p>
+          Har du spørsmål knyttet til spillene våre eller nettsiden generellt?
+          Send oss en meldig da vel!
+        </p>
+        <ul>
+          <li><a href="#">E-post</a></li>
+          <li><a href="#">Telefon</a></li>
+          <li><a href="#">Addresse</a></li>
+          <li><a href="#top">Til toppen</a></li>
+        </ul>
       </div>
-    
-      <!----------footer end---------->
+    </div>
+
+    <!----------footer end---------->
     <script src="tic-tac-toe.js"></script>
-</body>
+  </body>
 </html>
