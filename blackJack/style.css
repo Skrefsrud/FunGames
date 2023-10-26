@@ -33,6 +33,7 @@ html {
 
   display: grid;
   grid-template-rows: 45% 45% 10%;
+  position: relative;
 }
 
 .dealerCards {
@@ -74,6 +75,7 @@ html {
   position: absolute;
   top: 45%;
   left: 45%;
+  z-index: 100;
 }
 .dealCards.hide {
   display: none;
@@ -95,10 +97,12 @@ html {
 
 #wonScreen {
   background-color: green;
+  opacity: 0.95;
 }
 
 #lostScreen {
   background-color: red;
+  opacity: 0.95;
 }
 
 /* Initial style for all chips */
@@ -122,4 +126,34 @@ html {
   height: 130px;
   margin: -10px;
   padding: -20px;
+}
+
+/* ----- Position of the deck ------ */
+#deck {
+  width: 10%;
+  height: 30%;
+  left: 4%;
+  top: 30%;
+  position: absolute;
+}
+
+.dealer-card {
+  width: 10%;
+  height: 30%;
+  left: 4%;
+  top: 30%;
+  position: absolute;
+}
+
+/* ----- Second animation (player) ------ */
+
+.player-card {
+  width: 10%;
+  height: 30%;
+  left: 4%;
+  top: 30%;
+  position: absolute;
+  animation-name: deal2;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
 }

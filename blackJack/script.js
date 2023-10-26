@@ -15,9 +15,10 @@ class Card {
 
 // Class for both player and dealer
 class Player {
-  constructor(money) {
+  constructor(money, name) {
     this.money = money;
     this.cards = [];
+    this.name = name;
   }
   getCards() {
     return this.cards;
@@ -59,6 +60,10 @@ class Player {
     }
     return sum;
   }
+
+  getName() {
+    return this.name;
+  }
 }
 
 let sorts = ["♣", "♦", "♥", "♠"];
@@ -77,8 +82,8 @@ function createDeck() {
 }
 
 let deckOfCards = createDeck();
-let player = new Player(1000);
-let dealer = new Player(1000);
+let player = new Player(1000, "player");
+let dealer = new Player(1000, "dealer");
 let betAmount = 0;
 
 //Function for resetting game
@@ -86,8 +91,10 @@ function resetGame() {
   player.removeCards();
   dealer.removeCards();
   deckOfCards = createDeck();
-  document.querySelector(".playerCards").innerHTML = "";
-  document.querySelector(".dealerCards").innerHTML = "";
+  let prevCards = document.querySelectorAll(".cardForRemove");
+  prevCards.forEach((element) => {
+    element.remove();
+  });
   document.getElementById(
     "player-sum"
   ).innerHTML = `Player sum: ${player.getSum()}`;
@@ -202,27 +209,24 @@ function stand() {
 }
 
 //functions for rendering player and dealers cards
+let gameContainer = document.querySelector(".game-container");
 
 function renderPlayerCards() {
-  let playerCardsContainer = document.querySelector(".playerCards");
   let currentPlayerCards = player.getCards();
-  let cardDisplay = document.createElement("div");
-  let cardDisplayValue = document.createElement("p");
-  let cardDisplaySort = document.createElement("p");
+  let currentCard = currentPlayerCards[player.getAmountOfCards() - 1];
 
-  cardDisplay.classList.add("cardDisplay");
-  cardDisplayValue.classList.add("cardDisplayValue");
+  // Card animation for player
 
-  cardDisplayValue.textContent = `${currentPlayerCards[
-    player.getAmountOfCards() - 1
-  ].getNumber()}`;
-  cardDisplaySort.classList.add("classDisplaySort");
-  cardDisplaySort.textContent = `${currentPlayerCards[
-    player.getAmountOfCards() - 1
-  ].getSort()}`;
-  cardDisplay.appendChild(cardDisplayValue);
-  cardDisplay.appendChild(cardDisplaySort);
-  playerCardsContainer.appendChild(cardDisplay);
+  let cardImage = document.createElement("img");
+  cardImage.setAttribute(
+    "class",
+    `player-card ${dealer.getAmountOfCards()} cardForRemove`
+  );
+  cardImage.src = getImageSrc(currentCard);
+  //cardImage.setAttribute("src", getImageSrc(currentCard));
+  gameContainer.appendChild(cardImage);
+
+  startAnimation(cardImage, player);
 
   document.getElementById(
     "player-sum"
@@ -230,30 +234,60 @@ function renderPlayerCards() {
 }
 
 function renderDealerCards() {
-  let dealerCardsContainer = document.querySelector(".dealerCards");
   let currentDealerCards = dealer.getCards();
-  let cardDisplay = document.createElement("div");
-  let cardDisplayValue = document.createElement("p");
-  let cardDisplaySort = document.createElement("p");
+  let currentCard = currentDealerCards[dealer.getAmountOfCards() - 1];
 
-  cardDisplay.classList.add("cardDisplay");
-  cardDisplayValue.classList.add("cardDisplayValue");
-  cardDisplayValue.textContent = `${currentDealerCards[
-    dealer.getAmountOfCards() - 1
-  ].getNumber()}`;
-  cardDisplaySort.classList.add("classDisplaySort");
-  cardDisplaySort.textContent = `${currentDealerCards[
-    dealer.getAmountOfCards() - 1
-  ].getSort()}`;
-  cardDisplay.appendChild(cardDisplayValue);
-  cardDisplay.appendChild(cardDisplaySort);
-  dealerCardsContainer.appendChild(cardDisplay);
+  //animate the card to the board
+
+  let cardImage = document.createElement("img");
+  cardImage.setAttribute(
+    "class",
+    `dealer-card ${dealer.getAmountOfCards()} cardForRemove`
+  );
+  cardImage.src = getImageSrc(currentCard);
+  //cardImage.setAttribute("src", getImageSrc(currentCard));
+  gameContainer.appendChild(cardImage);
+
+  startAnimation(cardImage, dealer);
+
+  //rendering the dealer sum
 
   document.getElementById(
     "dealer-sum"
   ).innerHTML = `Dealer sum: ${dealer.getSum()}`;
 }
 
+//Delaer animation
+function startAnimation(cardImage, playMaker) {
+  if (playMaker.getName() === "dealer") {
+    var newTop = "7%";
+  } else if (playMaker.getName() === "player") {
+    var newTop = "52%";
+  }
+  const animationProperties = [
+    { left: "4%", top: "30%", transform: "rotate(0deg)" },
+    {
+      left: newLeftPrecentage(playMaker),
+      top: newTop,
+      transform: "rotate(180deg)",
+    },
+  ];
+
+  // Create a new animation
+  const animation = cardImage.animate(animationProperties, {
+    duration: 300, // Animation duration in milliseconds (1 second in this case)
+    fill: "forwards", // Keep the final state of the animation
+  });
+
+  // Start the animation immediately
+  animation.play();
+}
+
+function newLeftPrecentage(playMaker) {
+  let extraSum = playMaker.getAmountOfCards() * 12;
+  let newLeftAmount = 15 + extraSum;
+  return `${newLeftAmount}%`;
+}
 // logic for selecting bet amount
 
 let chips = document.querySelectorAll(".chip");
@@ -286,3 +320,20 @@ chips.forEach((chip) => {
     chip.classList.remove("hovered");
   });
 });
+
+function getImageSrc(card) {
+  let source = "";
+  "♣", "♦", "♥", "♠";
+  if (card.getSort() === "♣") {
+    source = `img/clubs_${card.getNumber()}.png`;
+  } else if (card.getSort() === "♦") {
+    source = `img/diamonds_${card.getNumber()}.png`;
+  } else if (card.getSort() === "♥") {
+    source = `img/hearts_${card.getNumber()}.png`;
+  } else if (card.getSort() === "♠") {
+    source = `img/spades_${card.getNumber()}.png`;
+  } else {
+    console.log("something went wrong getting image source");
+  }
+  return source;
+}

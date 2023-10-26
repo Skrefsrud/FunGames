@@ -1,8 +1,27 @@
-body{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+#body_tre_paa_rad{
+  background-color: #0c192c;
+  color: white;
+}
+#tre_paa_rad_overskrift{
+  text-align: center;
+  font-size: 60px;
+}
+#spillreglene{
+  display: none;
+}
+#skjul_regler_knapp{
+    cursor: pointer;
+    display: block;
+    width: 100px;   
+    background-color: white;
+    margin-left: 0%;
+    margin: auto 1rem auto;
+    padding: 1rem rem;
+    border: none;
+    border-radius: 10px;
+    color: #000000;
+    font-size: 12px;
+    cursor: pointer;
 }
 #gameboard{
     display: grid;
@@ -12,13 +31,41 @@ body{
     width: 33.33%;
     width: 100px;
     height: 100px;
+    gap: 5px; 
+    margin-top: 0px;
+    margin-bottom: 200px;
+    margin-left: 33%;
 }
   .square {
-    background-color: rgba(0, 122, 141, 0.8);
+    background-color: rgba(188, 233, 133, 0.8);
     border: 2px solid rgba(0, 15, 44, 0.8);
     padding: 10px;
     font-size: 50px;
     text-align: center;
     width: 100px;
     height: 100px;
+    cursor: pointer;
   }
+ 
+ #restart_button{
+    cursor: pointer;
+    display: block;
+    width: 175px;   
+    background-color: rgba(188, 233, 133, 0.8);
+    margin: 45px;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    color: #000000;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    position: absolute;
+    top: 630px;
+    right: 200px;
+ }
+ #restart_button:hover{
+  color:#ffffff;
+  background-color: rgba(0, 15, 44, 0.8); 
+  }
+
