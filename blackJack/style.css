@@ -97,10 +97,12 @@ html {
 
 #wonScreen {
   background-color: green;
+  opacity: 0.95;
 }
 
 #lostScreen {
   background-color: red;
+  opacity: 0.95;
 }
 
 /* Initial style for all chips */
@@ -127,46 +129,31 @@ html {
 }
 
 /* ----- Position of the deck ------ */
-#deck{
+#deck {
   width: 10%;
   height: 30%;
   left: 4%;
   top: 30%;
   position: absolute;
 }
-/* ----- First animation (dealer) ------ */
-#cards{
-    width: 10%;
-    height: 30%;
-    left: 4%;
-    top: 30%;
-    position: absolute;
-    animation-name: deal;
-    animation-duration: 3s;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-  }
-  
-  @keyframes deal {
-    0%   {left:4%; top:30%;}
-    33%  {left:27%; top:7%;transform: rotate(180deg);}
-    100% {left:27%; top:7%;}
+
+.dealer-card {
+  width: 10%;
+  height: 30%;
+  left: 4%;
+  top: 30%;
+  position: absolute;
+}
 
 /* ----- Second animation (player) ------ */
-  }
-  #cards2{
-    width: 10%;
-    height: 30%;
-    left: 4%;
-    top: 30%;
-    position: absolute;
-    animation-name: deal2;
-    animation-duration: 3s;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-  }
-  @keyframes deal2 {
-    0%   {left:4%; top:30%;}
-    33%  {left:27%; top:52%;transform: rotate(-180deg);}
-    100% {left:27%; top:52%;}
-  }
+
+.player-card {
+  width: 10%;
+  height: 30%;
+  left: 4%;
+  top: 30%;
+  position: absolute;
+  animation-name: deal2;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
