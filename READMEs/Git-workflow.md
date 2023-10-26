@@ -67,7 +67,7 @@ We'll go through each step in detail.
 Before starting any work, it's essential to ensure your local repository is up to date with the latest changes from the main branch:
 
 ```bash
-git pull origin main
+git pull origin maingit
 ```
 
 This command fetches changes from the remote repository (GitHub) and updates your local main branch.
