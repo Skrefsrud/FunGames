@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../globalScript.js" defer></script>
     <script src="script.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,18 +12,18 @@
   </head>
   <body>
     <header id="fellesheader">
-      <a href="./index.html" id="headerknapp"
+      <a href="../index.html" id="headerknapp"
         ><h1 id="headertekst">FunGames</h1></a
       >
     </header>
     <div class="container">
       <div class="info-container">
         <div class="player-info">
-          <h3 id="player-sum">Player Sum:</h3>
+          <h3>Player money</h3>
           <p class="money" id="player-money">1000$</p>
         </div>
         <div class="dealer-info">
-          <h3 id="dealer-sum">Dealer Sum:</h3>
+          <h3>Dealer Money</h3>
           <p class="money" id="dealer-money">1000$</p>
         </div>
       </div>
@@ -40,7 +41,9 @@
         </div>
       </div>
 
-      <div id="bet-container"></div>
+      <div id="bet-container">
+        <h3>Bet Pot:</h3>
+      </div>
 
       <div id="chip-container">
         <img class="chip 1" value="20" src="img/20chip.png" />
@@ -48,6 +51,53 @@
         <img class="chip 3" value="100" src="img/100chip.png" />
       </div>
     </div>
+    <!-------Background-------->
+
+    <div class="background-container">
+      <div class="background-bubles">
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+        <span class="hidden"></span>
+      </div>
+    </div>
+
+    <!-------Background-end-------->
     <!----------footer---------->
     <div class="footer">
       <div class="footer-content">
